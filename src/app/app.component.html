@@ -1,0 +1,193 @@
+<header class="header">
+  <div class="container header__container">
+    <div class="logo header__logo">
+      <img src="assets/images/logo.png" alt="Logo">
+    </div>
+    <div class="header__burger" id="burger">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink"
+        width="40px" height="22px">
+        <path fill-rule="evenodd" fill="rgb(130, 19, 40)"
+              d="M0.0,0.0 L39.999,0.0 L39.999,1.999 L0.0,1.999 L0.0,0.0 Z"/>
+        <path fill-rule="evenodd" fill="rgb(130, 19, 40)"
+              d="M0.0,10.0 L39.999,10.0 L39.999,12.0 L0.0,12.0 L0.0,10.0 Z"/>
+        <path fill-rule="evenodd" fill="rgb(130, 19, 40)"
+              d="M0.0,19.999 L39.999,19.999 L39.999,21.999 L0.0,21.999 L0.0,19.999 Z"/>
+      </svg>
+    </div>
+    <nav class="menu" id="menu">
+      <div class="menu__close">
+        <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
+             xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+             viewBox="0 0 492 492" style="enable-background:new 0 0 492 492;" xml:space="preserve">
+                    <g>
+	                    <g>
+		                    <path d="M300.188,246L484.14,62.04c5.06-5.064,7.852-11.82,7.86-19.024c0-7.208-2.792-13.972-7.86-19.028L468.02,7.872
+			c-5.068-5.076-11.824-7.856-19.036-7.856c-7.2,0-13.956,2.78-19.024,7.856L246.008,191.82L62.048,7.872
+			c-5.06-5.076-11.82-7.856-19.028-7.856c-7.2,0-13.96,2.78-19.02,7.856L7.872,23.988c-10.496,10.496-10.496,27.568,0,38.052
+			L191.828,246L7.872,429.952c-5.064,5.072-7.852,11.828-7.852,19.032c0,7.204,2.788,13.96,7.852,19.028l16.124,16.116
+			c5.06,5.072,11.824,7.856,19.02,7.856c7.208,0,13.968-2.784,19.028-7.856l183.96-183.952l183.952,183.952
+			c5.068,5.072,11.824,7.856,19.024,7.856h0.008c7.204,0,13.96-2.784,19.028-7.856l16.12-16.116
+			c5.06-5.064,7.852-11.824,7.852-19.028c0-7.204-2.792-13.96-7.852-19.028L300.188,246z"/>
+	                    </g>
+                    </g>
+                </svg>
+      </div>
+      <ul class="menu__list">
+        <li class="menu__item">
+          <a href="#" class="menu__link">Пироженки</a>
+        </li>
+        <li class="menu__item">
+          <a href="#" class="menu__link">О нас</a>
+        </li>
+        <li class="menu__item">
+          <a href="#" class="menu__link">Оформить заказ</a>
+        </li>
+      </ul>
+    </nav>
+    <div class="menu__number">
+      +375 (29) 368-98-68
+    </div>
+  </div>
+</header>
+<section class="main">
+  <div class="container main__container">
+    <div class="main__info">
+      <h1 class="double-title main__double-title">
+        Мягкие французские
+        пироженки Macaroons
+      </h1>
+      <div class="main__text">
+        Побалуйте себя и своих близких самыми вкусными и ароматными домашними пироженками Macaroon!
+      </div>
+      <div class="main__action">
+        <button class="btn main__btn" (click)="scrollTo(macaroons)">
+          Выбрать макарун
+        </button>
+      </div>
+    </div>
+    <div class="main__imagemain__image">
+      <img src="assets/images/macarons_main.png" alt="Macaroons" class="main__image-img">
+    </div>
+
+  </div>
+</section>
+
+<section class="bake">
+  <div class="container bake__container">
+    <div class="bake__info">
+      <h2 class="bake__title">Мы печём для вас вкуснейшие макаруны уже более 10 лет</h2>
+      <div class="bake__description">
+        Все пироженки мы готовим только из натуральных и качественных продуктов, без консервантов,
+        ароматизаторов,
+        красителей. Используем в приготовлении сливочное масло 82,5%, без дрожжей, маргарина, разрыхлителей и
+        улучшителей муки.
+      </div>
+    </div>
+    <div class="bake__image">
+      <img src="assets/images/big_macaroon.png" alt="Big macaroon" class="bake__image-img">
+    </div>
+  </div>
+</section>
+
+<section class="advantages" >
+  <div class="container advantages__container">
+    <div class="advantages__block" *ngFor="let advantage of advantages; let i = index">
+      <div class="advantages__number">
+        {{i + 1}}
+      </div>
+      <div class="advantages__name">
+        {{ advantage.name }}
+      </div>
+      <div class="advantages__description">
+        {{ advantage.description }}
+      </div>
+    </div>
+  </div>
+</section>
+<section class="catalog" #macaroons>
+  <div class="container catalog__container">
+    <h1 class="products__title">
+      Выберите свой макарун
+    </h1>
+    <div class="products">
+      <div class="products__item" *ngFor="let product of products">
+        <div class="products__image">
+          <img class="products__image-img" src="assets/images/{{product.image}}" alt="Pink">
+        </div>
+        <div class="products__name">
+          {{ product.name }}
+        </div>
+        <div class="products__number">
+         {{product.number}}
+        </div>
+        <div class="products__price">
+          {{product.price }}
+        </div>
+        <div class="btn products__btn" (click)="addToCart(product, orderElement)">
+          Заказать
+        </div>
+      </div>
+    </div>
+  </div>
+
+</section>
+<section class="order" #orderElement>
+  <div class="container order__container">
+    <div class="order__image">
+      <img src="assets/images/lots.png" alt="A lot of macaroons" class="order__image-img">
+      <div class="strawberryone">
+        <img src="assets/images/strawberry1.png" alt="strawberry1">
+      </div>
+      <div class="strawberrytwo">
+        <img src="assets/images/strawberry2.png" alt="strawberry2">
+      </div>
+    </div>
+    <div class="order__info">
+      <h2 class="order__name">Закажите макарун!</h2>
+      <div class="order__text">Выберите понравившийся макарун, заполните форму и ожидайте звонка нашего пекаря!
+      </div>
+      <div class="order__choice">
+        <div class="order__choice-name"  >Ваш выбор</div>
+        <input type="text" placeholder="Напишите, что хотите заказать..." class="order__placeholder" [(ngModel)]="formValues.productTitle">
+      </div>
+      <div class="order__information">
+        <div class="order__information-name">Заполните данные для заказа</div>
+        <input type="text" placeholder="Ваше имя..." class="order__placeholder" [(ngModel)]="formValues.productName">
+        <input type="text" placeholder="+375 (__) ___ - __ - __" class="order__placeholder" [(ngModel)]="formValues.productPhone">
+      </div>
+      <div class="btn order__btn">
+        Оформить заказ
+      </div>
+    </div>
+  </div>
+</section>
+<footer class="footer">
+  <div class="container footer__container">
+    <div class="logo footer__logo">
+      <img src="assets/images/logo.png" alt="Logo">
+    </div>
+    <div class="footer__instagram">
+      <img src="assets/images/instagram.png" alt="instagram">
+    </div>
+    <div class="footer__right">
+      {{number }}
+    </div>
+    <div class="footer__rights">
+      Все права защищены, 2020
+    </div>
+    <a [href]= "instagram" class="footer__center-text">
+      Мы в Instagram
+    </a>
+
+  </div>
+</footer>
+<div class="present" *ngIf="showPresent" >
+<!--<div class="present" [class.present]="showPresent" >-->
+  <img src="assets/images/present.png" alt="present">
+  <div class="present-text">
+    Оформите заказ
+    и получите подарок!
+  </div>
+</div>
