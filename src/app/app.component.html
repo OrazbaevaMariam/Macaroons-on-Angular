@@ -36,19 +36,17 @@
       </div>
       <ul class="menu__list">
         <li class="menu__item">
-          <a href="#" class="menu__link">Пироженки</a>
+          <a href="#" class="menu__link" (click)="scrollTo(macaroons)">Пироженки</a>
         </li>
         <li class="menu__item">
-          <a href="#" class="menu__link">О нас</a>
+          <a href="#" class="menu__link" (click)="scrollTo(bake)">О нас</a>
         </li>
         <li class="menu__item">
-          <a href="#" class="menu__link">Оформить заказ</a>
+          <a href="#" class="menu__link" (click)="scrollTo(orderElement)">Оформить заказ</a>
         </li>
       </ul>
     </nav>
-    <div class="menu__number">
-      +375 (29) 368-98-68
-    </div>
+    <a href="tel:{{number}}" class="menu__number">{{number}}</a>
   </div>
 </header>
 <section class="main">
@@ -74,7 +72,7 @@
   </div>
 </section>
 
-<section class="bake">
+<section class="bake" #bake>
   <div class="container bake__container">
     <div class="bake__info">
       <h2 class="bake__title">Мы печём для вас вкуснейшие макаруны уже более 10 лет</h2>
@@ -171,12 +169,14 @@
     <div class="footer__instagram">
       <img src="assets/images/instagram.png" alt="instagram">
     </div>
-    <div class="footer__right">
-      {{number }}
-    </div>
+    <a href="tel:{{number}}" class="footer__right">{{number}}</a>
+<!--    <div class="footer__right">-->
+<!--      {{number }}-->
+<!--    </div>-->
     <div class="footer__rights">
       Все права защищены, 2020
     </div>
+
     <a [href]= "instagram" class="footer__center-text">
       Мы в Instagram
     </a>
