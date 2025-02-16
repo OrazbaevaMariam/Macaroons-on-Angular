@@ -1,16 +1,21 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {ProductType} from "./types/product.type";
+import {ProductService} from "./services/product.service";
+import {CartService} from "./services/cart.service";
+import {CartNumberService} from "./services/cart-number.service";
+import {CurrencyPipe} from "@angular/common";
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
+
   title = 'my-app';
-   showPresent = false;
-   instagram = 'https://www.instagram.com/'
-   number = ' +375 (29) 368-98-68'
+  showPresent = true;
+  instagram = 'https://www.instagram.com/'
+  number = ' +375 (29) 368-98-68'
 
   public advantages = [
     {
@@ -31,45 +36,31 @@ export class AppComponent {
     },
 
   ];
- public products: ProductType[] = [
-    {
-      image: 'pink.png',
-      name: 'Макарун с малиной',
-      number: '1 шт.',
-      price: '1,70 руб.'
-    },
-    {
-      image: 'yellow.png',
-      name: 'Макарун с манго',
-      number: '1 шт.',
-      price: '1,70 руб.'
-    },
-    {
-      image: 'white.png',
-      name: 'Пирог с ванилью',
-      number: '1 шт.',
-      price: '1,70 руб.'
-    },
-    {
-      image: 'green.png',
-      name: 'Пирог с фисташками',
-      number: '1 шт.',
-      price: '1,70 руб.'
-    },
-  ];
+  public products: ProductType[] = []
 
- public formValues = {
-   productTitle: '',
-   productName: '',
-   productPhone: '',
- }
+  public formValues = {
+    productTitle: '',
+    productName: '',
+    productPhone: '',
+  }
 
- public scrollTo(target: HTMLElement): void {
-   target.scrollIntoView({behavior: 'smooth'});
- }
+  constructor(private productService: ProductService, public cartService: CartService, public cartNumberService: CartNumberService) {
+  }
 
- public addToCart(product: ProductType, target: HTMLElement): void {
-this.scrollTo(target)
-   throw this.formValues.productTitle = product.name.toUpperCase();
- }
+
+  ngOnInit() {
+    this.products = this.productService.getProducts();
+
+  }
+
+  public scrollTo(target: HTMLElement): void {
+    target.scrollIntoView({behavior: 'smooth'});
+  }
+
+  public addToCart(product: ProductType, target: HTMLElement): void {
+    this.scrollTo(target)
+    this.formValues.productTitle = product.name.toUpperCase();
+    this.cartService.count++;
+    this.cartNumberService.count++;
+  };
 }
