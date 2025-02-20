@@ -11,6 +11,7 @@ export class BtnEffectsDirective implements OnInit {
   @HostListener('mouseover')
   @HostListener('hover')
   mouseover() {
+    this.rend.setStyle(this.el.nativeElement, "background", "linear-gradient(#d7788c, #71081e)");
     this.rend.setStyle(this.el.nativeElement, "transition", "all 0.5s ease");
     this.rend.setStyle(this.el.nativeElement, "boxShadow", "0 5px 9px 1px rgba(130, 19, 40, 0.5)");
 
@@ -20,6 +21,7 @@ export class BtnEffectsDirective implements OnInit {
 
   @HostListener('mouseout')
   mouseout() {
+    this.rend.setStyle(this.el.nativeElement, "background", "linear-gradient(#d7485c, #71081e)");
     this.rend.setStyle(this.el.nativeElement, "transition", "none");
     this.rend.setStyle(this.el.nativeElement, "boxShadow", "none");
 

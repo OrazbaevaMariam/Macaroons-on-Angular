@@ -1,5 +1,5 @@
 export type AdvantageType = {
-  // i: number,
+  i: number,
   name: string,
   description: string,
 }

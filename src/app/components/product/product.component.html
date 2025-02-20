@@ -8,7 +8,7 @@
   {{product.number | number}}
 </div>
 <div class="products__price" >
-  {{product.price | currency:'RUB' }}
+  {{product.price | currency:'RUB': 'руб. ' }}
 <!--  {{product.price | currency: 'RUB'  }}-->
 </div>
 <div class="btn products__btn" (click)="addProductToCart()" btnEffects>

@@ -10,7 +10,7 @@ export class AdvantageComponent implements OnInit {
 @Input() advantage: AdvantageType;
   constructor() {
     this.advantage = {
-      // i: 0,
+      i: 0,
       name: '',
       description: '',
     }

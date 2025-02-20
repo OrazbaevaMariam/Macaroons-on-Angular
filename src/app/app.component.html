@@ -46,7 +46,7 @@
         </li>
       </ul>
     </nav>
-    <a href="tel:{{number}}" class="menu__number">{{number}}</a>
+    <a href="tel:{{number | number}}" class="menu__number">{{number | number}}</a>
   </div>
 </header>
 <section class="main">
@@ -92,7 +92,8 @@
 <section class="advantages" >
   <div class="container advantages__container">
 
-    <advantage *ngFor="let advantage of advantages" [advantage]="advantage"></advantage>
+    <advantage *ngFor="let advantage of advantages; let i = index"
+               [advantage]="advantage"></advantage>
 
   </div>
 </section>
@@ -145,7 +146,7 @@
     <div class="footer__instagram">
       <img src="assets/images/instagram.png" alt="instagram">
     </div>
-    <a href="tel:{{number}}" class="footer__right">{{number}}</a>
+    <a href="tel:{{number | number}}" class="footer__right">{{number | number}}</a>
 <!--    <div class="footer__right">-->
 <!--      {{number }}-->
 <!--    </div>-->
@@ -163,9 +164,9 @@
 <!--<div class="present" [class.present]="showPresent" >-->
   <img class="present-cart" src="assets/images/cart.png" alt="present">
   <div class="present-text">
-    {{cartService.count}}
+    {{cartService.sum}}  руб.
   </div>
   <div class="present-number">
-    {{cartNumberService.count}}
+    {{cartService.count}}
   </div>
 </div>
