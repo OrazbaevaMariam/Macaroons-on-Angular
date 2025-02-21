@@ -8,7 +8,7 @@ import {ProductService} from "./services/product.service";
 import { AdvantageComponent } from './components/advantage/advantage.component';
 import { ProductComponent } from './components/product/product.component';
 import { BtnEffectsDirective } from './directives/btn-effects.directive';
-import { AdvantageDescriptionPipe } from './pipes/advantage-description.pipe';
+import { truncatePipe } from './pipes/truncate.pipe';
 import { NumberPipe } from './pipes/number.pipe';
 
 @NgModule({
@@ -17,7 +17,7 @@ import { NumberPipe } from './pipes/number.pipe';
     AdvantageComponent,
     ProductComponent,
     BtnEffectsDirective,
-    AdvantageDescriptionPipe,
+    truncatePipe,
     NumberPipe,
   ],
   imports: [
