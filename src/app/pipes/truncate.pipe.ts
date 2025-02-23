@@ -3,10 +3,10 @@ import { Pipe, PipeTransform } from '@angular/core';
 @Pipe({
   name: 'truncate'
 })
-export class truncatePipe implements PipeTransform {
+export class TruncatePipe implements PipeTransform {
 
-  transform(value: string): string {
-   return  value.length >= 95 ? value.slice(0, 95) + '...' : value;
+  transform(value: string, length: number = 95): string {
+   return  value.length >= length ? value.slice(0, length) + '...' : value;
     return value;
     }
 
